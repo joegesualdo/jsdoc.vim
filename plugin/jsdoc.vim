@@ -16,20 +16,22 @@ function! JSDocAdd()
         let l:flag = 0
     endif
 
-    let l:lines = []
-    let l:desc = input('Description :')
-    call add(l:lines, l:space. '/**')
-    call add(l:lines, l:space . ' * ' . l:desc)
     if l:flag
-        let l:funcName = substitute(l:line, l:regex, '\1', "g")
-        let l:arg = substitute(l:line, l:regex, '\2', "g")
-        let l:args = split(l:arg, '\s*,\s*')
-        call add(l:lines, l:space . ' * @name ' . l:funcName)
-        call add(l:lines, l:space . ' * @function')
-        for l:arg in l:args
-            call add(l:lines, l:space . ' * @param ' . l:arg)
-        endfor
+      let l:lines = []
+      let l:desc = input('Description: ')
+      let l:funcName = substitute(l:line, l:regex, '\1', "g")
+      call add(l:lines, l:space. '/**')
+      call add(l:lines, l:space . ' * ' . l:funcName .'() ' . l:desc)
+      let l:arg = substitute(l:line, l:regex, '\2', "g")
+      let l:args = split(l:arg, '\s*,\s*')
+      call add(l:lines, l:space . ' *')
+      for l:arg in l:args
+          call add(l:lines, l:space . ' * @param {...} ' . l:arg . " -")
+      endfor
+      call add(l:lines, l:space . ' *')
+      call add(l:lines, l:space . ' * @return {...}')
+      call add(l:lines, l:space . ' */')
+      call append(line('.')-1, l:lines)
     endif
-    call add(l:lines, l:space . ' */')
-    call append(line('.')-1, l:lines)
+
 endfunction
