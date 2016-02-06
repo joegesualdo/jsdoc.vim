@@ -22,7 +22,6 @@ $ cd ~/.vim/bundle
 $ git clone https://github.com/joegesualdo/jsdoc.vim
 ```
 
-## Demo 
+## Demo
 
-[jsdoc.vim demo](https://raw.github.com/joegesualdo/jsdoc.vim/master/jsdoc-vim-demo.gif)
-
+![jsdoc vim gif](https://raw.github.com/joegesualdo/jsdoc.vim/master/jsdoc-vim-demo.gif)
