@@ -13,7 +13,7 @@
 Add to your plugin list:
 
 ```
-Plugin 'mxw/vim-jsx'
+Plugin 'joegesualdo/jsdoc.vim'
 ```
 
 Once added you your plugin list, you must install the plugin.
